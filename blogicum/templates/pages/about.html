@@ -3,7 +3,7 @@
   О проекте
 {% endblock %}
 {% block content %}
-  <h1>О проекте</h1>
+  <h1>О проекте 🚀</h1>
   <p>
     Блогикум — это дом для творческих людей. Это — сообщество людей, для которых 
     нет грани между ведением блога и дружбой в социальных сетях. 
@@ -17,5 +17,37 @@
   <p>
     Творчество, разнообразие и свобода взглядов и самовыражения — 
     основные черты наших пользователей.
-  </p> 
+  </p>
+  
+  <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white; text-align: center;">
+    <h2>🎉 Секретная фишка!</h2>
+    <p>Нажми на кнопку ниже, чтобы получить случайный факт о Блогикуме:</p>
+    <button id="funFactBtn" style="padding: 15px 30px; font-size: 18px; background: #fff; color: #667eea; border: none; border-radius: 25px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+      ✨ Получить факт
+    </button>
+    <p id="factDisplay" style="margin-top: 20px; font-size: 20px; font-weight: bold; min-height: 30px;"></p>
+  </div>
+
+  <script>
+    const facts = [
+      "🦄 Блогикум был создан в далеком 2024 году энтузиастами!",
+      "🌟 Наши пользователи пишут быстрее, чем печатают на клавиатуре!",
+      "🎨 Самый популярный цвет в Блогикуме — цвет творчества!",
+      "☕ Разработчики Блогикума выпивают 1000 чашек кофе в день!",
+      "🚀 Блогикум планирует захватить... шутка, мы просто делаем мир лучше!",
+      "📚 В Блогикуме можно найти больше историй, чем в библиотеке Конгресса!",
+      "🎭 У нас есть пользователи, которые ведут блоги о том, как они ведут блоги!"
+    ];
+    
+    document.getElementById('funFactBtn').addEventListener('click', function() {
+      const randomIndex = Math.floor(Math.random() * facts.length);
+      const factDisplay = document.getElementById('factDisplay');
+      factDisplay.style.opacity = 0;
+      setTimeout(() => {
+        factDisplay.textContent = facts[randomIndex];
+        factDisplay.style.opacity = 1;
+      }, 200);
+      factDisplay.style.transition = 'opacity 0.2s';
+    });
+  </script>
 {% endblock %}
